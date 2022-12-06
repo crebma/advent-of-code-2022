@@ -6,57 +6,57 @@ import kotlin.test.assertEquals
 internal class RoundScorerTest {
 
     @Test
-    fun canScoreRockVsPaper() {
+    fun canScoreRockDraw() {
         val score = RoundScorer().score("A Y")
-        assertEquals(8, score)
-    }
-
-    @Test
-    fun canScoreRockVsRock() {
-        val score = RoundScorer().score("A X")
         assertEquals(4, score)
     }
 
     @Test
-    fun canScoreRockVsScissors() {
-        val score = RoundScorer().score("A Z")
+    fun canScoreRockLoss() {
+        val score = RoundScorer().score("A X")
         assertEquals(3, score)
     }
 
     @Test
-    fun canScorePaperVsPaper() {
+    fun canScoreRockWin() {
+        val score = RoundScorer().score("A Z")
+        assertEquals(8, score)
+    }
+
+    @Test
+    fun canScorePaperDraw() {
         val score = RoundScorer().score("B Y")
         assertEquals(5, score)
     }
 
     @Test
-    fun canScorePaperVsRock() {
+    fun canScorePaperLoss() {
         val score = RoundScorer().score("B X")
         assertEquals(1, score)
     }
 
     @Test
-    fun canScorePaperVsScissors() {
+    fun canScorePaperWin() {
         val score = RoundScorer().score("B Z")
         assertEquals(9, score)
     }
 
     @Test
-    fun canScoreScissorsVsPaper() {
+    fun canScoreScissorsDraw() {
         val score = RoundScorer().score("C Y")
+        assertEquals(6, score)
+    }
+
+    @Test
+    fun canScoreScissorsLoss() {
+        val score = RoundScorer().score("C X")
         assertEquals(2, score)
     }
 
     @Test
-    fun canScoreScissorsVsRock() {
-        val score = RoundScorer().score("C X")
-        assertEquals(7, score)
-    }
-
-    @Test
-    fun canScoreScissorsVsScissors() {
+    fun canScoreScissorsWin() {
         val score = RoundScorer().score("C Z")
-        assertEquals(6, score)
+        assertEquals(7, score)
     }
 
 }

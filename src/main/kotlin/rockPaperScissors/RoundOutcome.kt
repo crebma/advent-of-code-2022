@@ -1,5 +1,13 @@
 package rockPaperScissors
 
-enum class RoundOutcome(val value: Int) {
-    Win(6), Lose(0), Draw(3)
+enum class RoundOutcome(val letter: String, val value: Int) {
+    Win("Z", 6), Lose("X",0), Draw("Y", 3);
+
+    companion object {
+        fun fromLetter(letter: String): RoundOutcome {
+            return RoundOutcome.values().first { outcome ->
+                outcome.letter == letter
+            }
+        }
+    }
 }

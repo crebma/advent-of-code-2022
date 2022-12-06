@@ -9,19 +9,19 @@ internal class GameScorerTest {
     @Test
     fun canScoreAGameWithOneRound() {
         val score = GameScorer().score("A Y")
-        assertEquals(8, score)
+        assertEquals(4, score)
     }
 
     @Test
     fun canScoreAGameWithTwoRounds() {
         val score = GameScorer().score("A Y\nB X")
-        assertEquals(9, score)
+        assertEquals(5, score)
     }
 
     @Test
     fun canScoreAGameWithThreeRounds() {
         val score = GameScorer().score("A Y\nB X\nC Z")
-        assertEquals(15, score)
+        assertEquals(12, score)
     }
 
     @Test
@@ -30,6 +30,6 @@ internal class GameScorerTest {
             Path("src/test/resources/rockPaperScissors.txt")
         ).joinToString("\n")
         val score = GameScorer().score(input)
-        assertEquals(10595, score)
+        assertEquals(9541, score)
     }
 }
