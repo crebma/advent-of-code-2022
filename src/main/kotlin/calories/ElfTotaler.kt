@@ -1,3 +1,5 @@
+package calories
+
 class ElfTotaler {
 
     fun totals(input: String): List<Int> {

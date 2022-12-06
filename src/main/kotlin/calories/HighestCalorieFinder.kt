@@ -1,3 +1,5 @@
+package calories
+
 class HighestCalorieFinder {
     fun highest(input: String): Int {
         return sortedElfTotals(input).last()

@@ -1,5 +1,6 @@
+package calories
+
 import java.nio.file.Files
-import java.util.ResourceBundle
 import kotlin.io.path.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals

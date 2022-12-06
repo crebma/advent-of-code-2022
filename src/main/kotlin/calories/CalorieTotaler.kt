@@ -1,3 +1,5 @@
+package calories
+
 class CalorieTotaler {
     fun total(input: String): Int {
         val numbers = input.split("\n")
