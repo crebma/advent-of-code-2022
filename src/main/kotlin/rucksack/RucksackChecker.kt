@@ -10,6 +10,16 @@ class RucksackChecker {
             return findDuplicate(rucksack)
         }
 
+        fun commonItems(group: List<String>): String {
+            val first = group.get(0)
+            val second = group.get(1)
+            val third = group.get(2)
+            val commonItem = first.first { item -> second.contains(item)
+                    && third
+                .contains(item) }
+            return commonItem.toString()
+        }
+
         private fun findDuplicate(rucksack: List<Char>): String {
             val (firstCompartment, secondCompartment) = compartments(rucksack)
             val duplicateItem = firstCompartment.firstOrNull { item ->
