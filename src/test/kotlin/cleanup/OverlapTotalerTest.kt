@@ -26,7 +26,7 @@ internal class OverlapTotalerTest {
             Path("src/test/resources/cleanupAssignments.txt")
         ).joinToString("\n")
         val overlapTotal = totalOverlaps(input)
-        assertEquals(503, overlapTotal)
+        assertEquals(827, overlapTotal)
     }
 
 }

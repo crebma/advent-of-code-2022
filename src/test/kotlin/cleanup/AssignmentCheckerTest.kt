@@ -12,9 +12,9 @@ internal class AssignmentCheckerTest {
     }
 
     @Test
-    fun notAnOverlapIfNotCompletelyOverlapping() {
+    fun isAnOverlapIfNotCompletelyOverlapping() {
         val overlaps = AssignmentChecker.overlaps("5-7,7-9")
-        assertFalse(overlaps)
+        assertTrue(overlaps)
     }
 
     @Test
@@ -36,9 +36,9 @@ internal class AssignmentCheckerTest {
     }
 
     @Test
-    fun notAnOverlapIfNotCompletelyOverlappingWithLargeNumbers() {
+    fun isAnOverlapIfNotCompletelyOverlappingWithLargeNumbers() {
         val overlaps = AssignmentChecker.overlaps("54-78,74-96")
-        assertFalse(overlaps)
+        assertTrue(overlaps)
     }
 
     @Test
