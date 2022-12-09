@@ -11,7 +11,7 @@ internal class CrateMoverTest {
         val stacksText = "[C] [D]\n[A] [B]\n 1   2\n"
         val procedures = "move 1 from 2 to 1"
         val topLetters = CrateMover.move(stacksText, procedures)
-        assertEquals(listOf('D', 'B'), topLetters)
+        assertEquals("DB", topLetters)
     }
 
     @Test
@@ -19,7 +19,7 @@ internal class CrateMoverTest {
         val stacksText = "[C] [D]\n[A] [B]\n 1   2\n"
         val procedures = "move 1 from 1 to 2"
         val topLetters = CrateMover.move(stacksText, procedures)
-        assertEquals(listOf('A', 'C'), topLetters)
+        assertEquals("AC", topLetters)
     }
 
     @Test
@@ -27,7 +27,15 @@ internal class CrateMoverTest {
         val stacksText = "[C] [D]\n[A] [B]\n 1   2\n"
         val proceduresText = "move 2 from 2 to 1"
         val topLetters = CrateMover.move(stacksText, proceduresText)
-        assertEquals(listOf('B'), topLetters)
+        assertEquals("D", topLetters)
+    }
+
+    @Test
+    fun canMoveCratesManyTimes() {
+        val stacksText = "    [D]    \n" + "[N] [C]    \n" + "[Z] [M] [P]\n" + " 1   2   3 "
+        val proceduresText = "move 1 from 2 to 1\n" + "move 3 from 1 to 3\n" + "move 2 from 2 to 1\n" + "move 1 from 1 to 2"
+        val topLetters = CrateMover.move(stacksText, proceduresText)
+        assertEquals("MCD", topLetters)
     }
 
     @Test
@@ -39,7 +47,16 @@ internal class CrateMoverTest {
             .readAllLines(Path("src/test/resources/rearrangementProcedure.txt"))
             .joinToString("\n")
         val topLetters = CrateMover.move(stacksText, proceduresText)
-        assertEquals(listOf('T', 'W', 'S', 'G', 'Q', 'H', 'N', 'H', 'L'), topLetters)
+        assertEquals("JNRSCDWPP", topLetters)
     }
 
+    @Test
+    fun canGetOutcomeOfActualStacksAndFirstThreeProcedures() {
+        val stacksText = Files
+            .readAllLines(Path("src/test/resources/crates.txt"))
+            .joinToString("\n")
+        val proceduresText = "move 6 from 6 to 5\n" + "move 2 from 5 to 9\n" + "move 8 from 9 to 1"
+        val topLetters = CrateMover.move(stacksText, proceduresText)
+        assertEquals("BHJLWHLT", topLetters)
+    }
 }
